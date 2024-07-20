@@ -23,7 +23,7 @@ public class Tracker {
     }
 
     public Item[] findByName(String key) {
-        var tempArr = new Item[100];
+        var tempArr = new Item[size];
         var index = 0;
         for (int i = 0; i < size; i++) {
             if (items[i].getName().equals(key)) {
