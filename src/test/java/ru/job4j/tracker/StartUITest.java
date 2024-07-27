@@ -38,6 +38,6 @@ class StartUITest {
         String[] answers = {String.valueOf(item.getId())};
         new DeleteAction().execute(new MockInput(answers), tracker);
         Item edited = tracker.findById(item.getId());
-        assertThat(edited).isEqualTo(null);
+        assertThat(edited).isNull();
     }
 }
