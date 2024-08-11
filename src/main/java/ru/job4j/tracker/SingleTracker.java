@@ -10,7 +10,7 @@ public final class SingleTracker {
     private SingleTracker() {
     }
 
-    public SingleTracker getInstance() {
+    public static SingleTracker getInstance() {
         if (instance == null) {
             instance = new SingleTracker();
         }
