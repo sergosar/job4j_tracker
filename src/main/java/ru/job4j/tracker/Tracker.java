@@ -9,10 +9,10 @@ public class Tracker {
     private List<Item> items = new ArrayList<>();
     private int ids = 1;
 
-    public boolean add(Item item) {
-        item.setId(ids);
-        ids++;
-        return items.add(item);
+    public Item add(Item item) {
+        item.setId(ids++);
+        items.add(item);
+        return item;
     }
 
     public Item findById(int id) {
@@ -25,14 +25,20 @@ public class Tracker {
     }
 
     public List<Item> findByName(String key) {
-        return items.stream().filter(i -> i.getName().equals(key)).collect(Collectors.toList());
+        List<Item> result = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName().equals(key)) {
+                result.add(item);
+            }
+        }
+        return result;
     }
 
     private int indexOf(int id) {
         int result = -1;
-        for (Item i : items) {
-            if (i.getId() == id) {
-                result = items.indexOf(i);
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId() == id) {
+                result = index;
                 break;
             }
         }
