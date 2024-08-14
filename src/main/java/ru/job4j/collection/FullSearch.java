@@ -7,9 +7,7 @@ public class FullSearch {
     public HashSet<String> extractNumber(List<Task> list) {
         HashSet<String> numbers = new HashSet<>();
         for (Task task : list) {
-            if (task != null) {
-                numbers.add(task.getNumber());
-            }
+            numbers.add(task.getNumber());
         }
         return numbers;
     }

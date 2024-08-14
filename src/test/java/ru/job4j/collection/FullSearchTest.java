@@ -54,17 +54,4 @@ public class FullSearchTest {
         Set<String> expected = new HashSet<>(Arrays.asList("1"));
         assertThat(fullSearch.extractNumber(tasks)).containsAll(expected);
     }
-
-    @Test
-    public void whenExtractNumberWithNullTasks() {
-        FullSearch fullSearch = new FullSearch();
-        List<Task> tasks = Arrays.asList(
-                new Task("1", "First desc"),
-                null,
-                new Task("2", "Second desc"),
-                null
-        );
-        Set<String> expected = new HashSet<>(Arrays.asList("1", "2"));
-        assertThat(fullSearch.extractNumber(tasks)).containsAll(expected);
-    }
 }
