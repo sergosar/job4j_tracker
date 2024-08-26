@@ -63,11 +63,7 @@ public class AnalyzeByMap {
         List<Label> labels = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                if (subOvSc.containsKey(subject.name())) {
-                    subOvSc.put(subject.name(), subOvSc.get(subject.name()) + subject.score());
-                } else {
-                    subOvSc.put(subject.name(), subject.score());
-                }
+                subOvSc.put(subject.name(), subOvSc.getOrDefault(subject.name(), 0) + subject.score());
             }
         }
         for (Map.Entry<String, Integer> entry : subOvSc.entrySet()) {
